@@ -1,19 +1,4 @@
-// SudokuGenerator.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
-
-
-int grid[9][9]{ {8,0,2,7,0,0,4,0,0},
-				{0,1,0,0,0,9,0,0,5},
-				{0,4,0,0,8,0,2,0,0},
-				{0,0,0,0,5,0,9,2,0},
-				{0,0,0,8,0,7,0,0,6},
-				{7,0,9,0,6,0,0,5,0},
-				{0,0,3,0,0,5,7,0,9},
-				{6,0,0,0,1,0,3,0,0},
-				{4,0,0,2,0,0,0,0,8} };
-
 
 void print_grid(int grid[9][9])								// Prints a 9x9 grid
 {
@@ -36,6 +21,16 @@ bool contains_val(int list[9], int val)						// Checks if a 9-length list contai
 	}
 	return false;
 }
+
+int grid[9][9]{ {8,0,2,7,0,0,4,0,0},
+				{0,1,0,0,0,9,0,0,5},
+				{0,4,0,0,8,0,2,0,0},
+				{0,0,0,0,5,0,9,2,0},
+				{0,0,0,8,0,7,0,0,6},
+				{7,0,9,0,6,0,0,5,0},
+				{0,0,3,0,0,5,7,0,9},
+				{6,0,0,0,1,0,3,0,0},
+				{4,0,0,2,0,0,0,0,8} };
 
 int solve_grid()
 {
@@ -92,7 +87,7 @@ int solve_grid()
 			return 0;										// If it has made it here, no solutions for this arrangement
 		}
 	}
-	return 1;												// Grid has already been filled
+	return 1;												// Grid has been filled
 }
 
 
@@ -100,12 +95,7 @@ int main()
 {
 	print_grid(grid);
 	std::cout << "\n\n";
-	int solved = solve_grid();
-	if (solved) {
-		print_grid(grid);
-	}
-	else {
-		std::cout << "No solution found.";
-	}
+	solve_grid();
+	print_grid(grid);
 	return 0;
 }
